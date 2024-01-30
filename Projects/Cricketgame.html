@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        Enter Number of player
+        <input id="numOfPlayer" type="number">
+        <button class="submit" id='submit' onclick="subMit()">Submit</button>
+        <br><hr>
+        <button onclick="onBolling()">Wicket</button>
+        <button onclick="onBatting()">Bat</button>
+        <button onclick="onBolling()">Ball</button>
+    </div>
+    
+    <script>
+        function rand() {
+            score_val = Math.random()*6
+            return score_val
+        }
+        
+        let player = document.getElementById('numOfPlayer').value;
+        function subMit() {
+            player = document.getElementById('numOfPlayer').value;
+    
+            let elehtml = document.getElementById('numOfPlayer');
+
+            let h1Element = document.createElement('h1');
+            h1Element.textContent = `Number of Players: ${player}`
+            elehtml.parentNode.replaceChild(h1Element, elehtml);
+            console.log(elehtml);
+
+            let submit_btn = document.getElementById('submit')
+            document.getElementById('submit').innerText = 'Check Result'
+            submit_btn.setAttribute('onclick', 'Result()')
+        }
+        me = {'score':0,'wicket':0}
+        system = {'score':0,'wicket':0}
+
+        function onBatting() {
+            rand_val = Math.round(rand())
+            console.log(me,"=============rand_val");
+            if (me.wicket == player){
+                alert('All Out')
+            }else if (rand_val == 0){
+                me['wicket'] = me.wicket+1
+            }else{
+                me['score'] = me.score + rand_val
+            }
+        }
+
+
+        function onBolling() {
+            rand_val = Math.round(rand())
+            console.log(system,"=============rand_val");
+            if (system.wicket == player){
+                alert('All Out')
+            }else if (rand_val == 0){
+                system['wicket'] = system.wicket+1
+            }else{
+                system['score'] = system.score + rand_val
+            }
+        }
+
+
+        function Result() {
+            if (me.score ==0 && 0 == system.score){
+                // continue ;
+                console.log("Hiiii");
+            } else if (me.score == system.score) {
+                alert (`This is a Tie Match System score ${system.score} AND Your score ${me.score}`)
+            } else if(me.score > system.score) {
+                alert(`Hey User You are the winner System score ${system.score} AND Your score ${me.score}`)
+            } else if (me.score < system.score){
+                alert(`System User is winner System score ${system.score} AND Your score ${me.score}`)
+            }
+        }
+
+
+    </script>
+</body>
+</html>
