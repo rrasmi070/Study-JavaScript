@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        main{
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            height: 520px;
+            width: 300px;
+
+        }
+        #heading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            margin-bottom: 1px;
+        }
+        .btn-container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #input-area{
+            margin-top: 1px;
+            height: 60px;
+            border: 1px solid black;
+        }
+
+        button{
+            height: 70px;
+            width: 70px;
+            margin: 2px;
+            font-size: 20px;
+        }
+        #clear{
+            display: flexbox;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 id="heading">My Calculator</h1>
+            <p id="input-area"></p>
+            <div class="btn-container">
+
+                <button onclick="btnCkick('7')">7</button>
+                <button onclick="btnCkick('8')">8</button>
+                <button onclick="btnCkick('9')">9</button>
+                <button onclick="btnCkick('+')">+</button>
+                <button onclick="btnCkick('4')">4</button>
+                <button onclick="btnCkick('5')">5</button>
+                <button onclick="btnCkick('6')">6</button>
+                <button onclick="btnCkick('-')">-</button>
+                <button onclick="btnCkick('1')">1</button>
+                <button onclick="btnCkick('2')">2</button>
+                <button onclick="btnCkick('3')">3</button>
+                <button onclick="btnCkick('/')">/</button>
+                <button onclick="btnCkick('0')">0</button>
+                <button onclick="equalBtnCkick('=')">=</button>
+                <button onclick="btnCkick('%')">%</button>
+                <button onclick="btnCkick('*')">*</button>
+                <button onclick="btnCkick('.')">.dot</button>
+                <button onclick="clearBtn()">C</button>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+    <script>
+        let total_v = ''
+        document.querySelector("#input-area").innerText = 0;
+        function btnCkick(params) {
+            if (document.querySelector('#input-area').innerText == 0){
+                total_v = params
+            }
+            else{
+                total_v = document.querySelector('#input-area').innerText + params
+            }
+            document.querySelector('#input-area').innerText = total_v
+        }
+        
+        function equalBtnCkick(params) {
+            res = document.querySelector('#input-area').innerText
+            document.querySelector('#input-area').innerText = eval(res)
+            console.log(res,"===================hh============");
+        }
+
+        function clearBtn() {
+            document.querySelector('#input-area').innerText = 0
+        }
+
+    </script>
+</body>
+</html>
