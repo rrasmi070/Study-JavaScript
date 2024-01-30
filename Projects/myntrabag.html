@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Bag</title>
+</head>
+<body>
+    <div>
+        <button onclick="addToCart()">Add To Cart </button>
+        <button onclick="wishlist_cal()">Add To Wishlist </button>
+        <button onclick="moveToCart()">Move To Cart </button>
+        <h4 id="cartval">Cart Itms</h4>
+        <h4 id="wishlistval">Wish List Item</h4>
+
+        <h4 id="eval-calc">Using eval function</h4>
+    </div>
+    <script>
+        // add to cart
+        function calcTotal(c, w){
+            console.log(eval('1+8+9'))
+            document.querySelector('#eval-calc').innerText = `Total Item Count ${eval(cart+wishlist)}`
+        }
+        let cart = 0;
+        let wishlist = 0;
+        function addToCart() {
+            cart++;
+            console.log(cart);
+            document.querySelector('#cartval').innerText = `Cart Itms ${cart}`;
+            calcTotal (cart, wishlist)
+
+        }
+
+        // add to cart
+        function wishlist_cal() {
+            wishlist++;
+            console.log(wishlist);
+            document.querySelector('#wishlistval').innerText = `Wishlist Itms ${wishlist}`;
+            calcTotal (cart, wishlist)
+
+        }
+
+        function moveToCart() {
+            if (wishlist >= 1) {
+                cart++;
+                console.log(cart);
+                document.querySelector('#cartval').innerText = `Cart Itms ${cart}`;
+                wishlist-=1
+                document.querySelector('#wishlistval').innerText = `Wishlist Itms ${wishlist}`;
+                calcTotal (cart, wishlist)
+            }
+            else{
+                alert('No Items')
+            }
+        }
+    </script>
+</body>
+</html>
