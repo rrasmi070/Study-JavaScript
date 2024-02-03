@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #task3 {
+        height: 40px;
+        width: 70px;
+    }
+
+    #task3_change {
+        height: 40px;
+        width: 500px;
+    }
+</style>
 
 <body>
     <h1>Notes</h1>
@@ -16,6 +27,13 @@
     <p id="obj"></p>
 
     <p id="interval"></p>
+
+
+
+    <h1>Practice: Advance Function</h1>
+    <hr>
+    <p>1. Create a button which should grow double size after click of 2 secound.</p>
+    <button id='task3' ondblclick="clickSizeDOuble()">Click</button>
     <script>
         var person = {
             firstName: "John",
@@ -32,8 +50,8 @@
             }
         };
         json_ = JSON.stringify(person)
-        document.querySelector('#json').innerText=`${JSON.stringify(person)}`
-        document.querySelector('#obj').innerText=`${JSON.stringify(json_)}`
+        document.querySelector('#json').innerText = `${JSON.stringify(person)}`
+        document.querySelector('#obj').innerText = `${JSON.stringify(json_)}`
 
         // date time
         console.log(new Date()); //date
@@ -45,18 +63,47 @@
 
         const element = document.getElementById("demo")
         // .innerText = 50;
-        v= 5
-        let intervFun = ()=>{
-            v=v+5
-            console.log(v,"====");
+        v = 5
+        let intervFun = () => {
+            v = v + 5
+            console.log(v, "====");
             return v
         }
-    
-        setInterval(intervFun,2000)
+
+        setInterval(intervFun, 20000)
 
         let elements = document.getElementById('interval')
         let interval = () => elements.innerText = `Interval now datetime${new Date()}`
-        setInterval(interval,2)
+        setInterval(interval, 2)
+
+        const styles = {
+            width: '150px',
+            height: '40px',
+            color: 'blue',
+            backgroundColor: 'white'
+        };
+
+
+        const propertyChange = () =>{
+            console.log("Im double ckick");
+            if (document.getElementById('task3')) {
+                document.getElementById('task3').id = 'task3_change'
+
+            } else {
+                console.log(Object.keys(styles));
+                Object.keys(styles).map(
+                    i =>
+                        // console.log(styles[i])
+                        document.getElementById('task3_change').style.cssText = "width: 150px; height: 40px; color: blue"
+                        
+                        );
+                    document.getElementById('task3_change').id = 'task3'
+            }
+        }
+
+        let clickSizeDOuble = () => {
+            setTimeout(propertyChange, 2000)
+        }
 
     </script>
 </body>
