@@ -41,6 +41,11 @@
     <br>
     <hr>
     <p>3. Create an sum of elements array using for-each loop.</p>
+    <p id="for-each"></p>
+    <br>
+    <hr>
+    <p>4. Create a function that takes a number array, retun squre using map()</p>
+    <p id="function-map-squre"></p>
     <script>
         var person = {
             firstName: "John",
@@ -121,7 +126,22 @@
         num_array.forEach(element => {
             sum_array = sum_array+element
         });
+        let sum_array_ele = document.getElementById('for-each')
+        sum_array_ele.innerText = `[${num_array}] ======> ${sum_array}`
         console.log(sum_array,"===============sum_array");
+
+
+        let num_arr = [2,5,4,3,7,9,11,12]
+        var takeNumverArray = (arr) => {
+
+            res = arr.map(i => i*i)
+            console.log(res,"=============>>");
+            return res
+
+        }
+        let function_map_squre = document.getElementById('function-map-squre')
+        function_map_squre.innerText = `[${num_arr}] ======> [${takeNumverArray(num_arr)}]`
+        console.log(takeNumverArray(num_arr),"=====kk");
 
     </script>
 </body>
