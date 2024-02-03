@@ -34,6 +34,13 @@
     <hr>
     <p>1. Create a button which should grow double size after click of 2 secound.</p>
     <button id='task3' ondblclick="clickSizeDOuble()">Click</button>
+    <br>
+    <hr>
+    <p>2. Create a button which should grow double size after click of 2 secound. (using event listener)</p>
+    <button id='task4'>Click</button>
+    <br>
+    <hr>
+    <p>3. Create an sum of elements array using for-each loop.</p>
     <script>
         var person = {
             firstName: "John",
@@ -104,6 +111,17 @@
         let clickSizeDOuble = () => {
             setTimeout(propertyChange, 2000)
         }
+
+
+        let task4_element = document.getElementById('task4')
+        task4_element.addEventListener('click', clickSizeDOuble)
+        // task4_element.addEventListener('dblclick', clickSizeDOuble)
+        let sum_array = 0
+        let num_array = [1,5,1,7,8,9]
+        num_array.forEach(element => {
+            sum_array = sum_array+element
+        });
+        console.log(sum_array,"===============sum_array");
 
     </script>
 </body>
