@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Notes</h1>
+    <h3>JS object to json: ===> JSON.stringify()</h3>
+    <p id="json">
+
+    <h3>JS json to object: ===> JSON.parse()</h3>
+    <p id="obj"></p>
+
+    <p id="interval"></p>
+    <script>
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30,
+            isStudent: false,
+            address: {
+                street: "123 Main Street",
+                city: "Anytown",
+                country: "USA"
+            },
+            sayHello: function () {
+                console.log("Hello, my name is " + this.firstName + " " + this.lastName + ".");
+            }
+        };
+        json_ = JSON.stringify(person)
+        document.querySelector('#json').innerText=`${JSON.stringify(person)}`
+        document.querySelector('#obj').innerText=`${JSON.stringify(json_)}`
+
+        // date time
+        console.log(new Date()); //date
+        console.log(new Date().getDate()); //only date
+        console.log(new Date().getMonth()); //month
+        console.log(new Date().getFullYear());
+        console.log(new Date().getMilliseconds());
+
+
+        const element = document.getElementById("demo")
+        // .innerText = 50;
+        v= 5
+        let intervFun = ()=>{
+            v=v+5
+            console.log(v,"====");
+            return v
+        }
+    
+        setInterval(intervFun,2000)
+    </script>
+</body>
+
+</html>
