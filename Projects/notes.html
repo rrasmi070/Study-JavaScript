@@ -53,6 +53,11 @@
         }
     
         setInterval(intervFun,2000)
+
+        let elements = document.getElementById('interval')
+        let interval = () => elements.innerText = `Interval now datetime${new Date()}`
+        setInterval(interval,2)
+
     </script>
 </body>
 
